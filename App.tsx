@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button, TextInput, ScrollView, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, Button, TextInput, ScrollView, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SelectList } from 'react-native-dropdown-select-list';
@@ -29,6 +29,10 @@ const HomeScreen = ({ navigation, route }: any) => {
 
   return (
     <View style={styles.container}>
+      {/* Logo Image centered at the top */}
+      <Image source={require('./assets/coffeeLogo.jpg')} style={styles.logo} />
+
+
       <Text style={styles.header}>Chef's Menu</Text>
       <Text style={styles.subHeader}>Total Dishes: {totalItems}</Text>
       <Text style={styles.subHeader}>Average Price: R {averagePrice.toFixed(2)}</Text>
@@ -118,6 +122,14 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: '#F5F5DC',
+    justifyContent: 'flex-start', // Ensures content starts from top of screen
+  },
+  logo: {
+    width: 150,
+    height: 150,
+    alignSelf: 'center', // Centers the logo horizontally
+    marginTop: 20, // Adds space from the top of the screen
+    marginBottom: 20, // Adds space below the logo for content separation
   },
   header: {
     fontSize: 28,
